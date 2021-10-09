@@ -1,0 +1,16 @@
+{
+  "name": "RPN_Calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [],
+  "author": "Cam Marshall",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.9.0"
+  }
+}
