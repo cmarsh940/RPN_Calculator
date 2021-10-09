@@ -1,11 +1,12 @@
 {
   "name": "RPN_Calculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic RPN Calculator CLI",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "start": "node cli.js"
   },
   "keywords": [],
   "author": "Cam Marshall",

@@ -30,16 +30,13 @@ function getResults(tokens) {
     return total
 }
 
-function parseToken(tokens) {
-    return tokens
-        .trim()
-        .split(' ')
-        .filter(value => value !== '')
-}
+function calculateTotal(input) {
+    input.forEach((value) => {
+        rpnCalculate(value)
+    })
 
-function isOperator(token) {
-    const operator = new Set(['+', '-', '*', '/'])
-    return operator.has(token)
+    const result = stack[stack.length - 1]
+    return result
 }
 
 function rpnCalculate(token) {
@@ -54,6 +51,7 @@ function rpnCalculate(token) {
     return stack[0]
 };
 
+// Compare the operator to the standard arithmetic operators and return the proper calculated results
 function resolve(number1, operator, number2) {
     if (operator === '+') {
         return number1 + number2
@@ -70,24 +68,28 @@ function resolve(number1, operator, number2) {
 }
 
 
-function calculateTotal(input) {
-    input.forEach((value) => {
-        rpnCalculate(value)
-    })
-
-    const result = stack[stack.length - 1]
-    return result
+// Change the value being passed in from a string to array, and clean up the values.
+function parseToken(tokens) {
+    return tokens
+        .trim()
+        .split(' ')
+        .filter(value => value !== '')
 }
 
+// Check to make sure that it only implement the four standard arithmetic operators
+function isOperator(token) {
+    const operator = new Set(['+', '-', '*', '/'])
+    return operator.has(token)
+}
 
+// Validate the input and only allow operators or numbers that are going to be calculated
 function validateInput(input) {
 
     if (!input) {
         return false
     }
 
-    const allowedInputs = parseToken(input)
-        .every((value) => (value * 1) || isOperator(value))
+    const allowedInputs = parseToken(input).every((value) => (value * 1) || isOperator(value))
 
     if (!allowedInputs) {
         return false
