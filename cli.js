@@ -1,3 +1,4 @@
+// Using The readline node module that provides an interface for reading data from a Readable stream one line at a time.
 const readline = require('readline');
 
 const { getResults } = require('./index.js');

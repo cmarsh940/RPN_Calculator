@@ -17,12 +17,15 @@ function getResults(tokens) {
 
     const isValidInput = validateInput(tokens)
 
+    // Check to make sure input is valid
     if (!isValidInput) {
         return "Enter a valid operation."
     }
 
+    // Start calculation if input is valid
     const total = calculateTotal(parseToken(tokens))
 
+    // Check if what calculation returned was a valid number or operation.
     if (Number.isNaN(total)) {
         return "Not a valid operation."
     }
